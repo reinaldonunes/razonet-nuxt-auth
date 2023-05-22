@@ -32,6 +32,8 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     '@nuxt/typescript-build',
+    '@nuxtjs/composition-api/module',
+    ['@pinia/nuxt', { autoImports: true, disableVuex: false }],
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -57,7 +59,13 @@ export default {
     middleware: ['auth']
   },
 
-  pinia: {},
+  pinia: {
+    autoImports: [
+      // automatically imports `defineStore`
+      'defineStore', // import { defineStore } from 'pinia'
+      ['defineStore', 'definePiniaStore'], // import { defineStore as definePiniaStore } from 'pinia'
+    ],
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
