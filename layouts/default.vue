@@ -1,3 +1,6 @@
+<script>
+  
+</script>
 <template>
   <main>
     <header class="container-fluid bg-light p-0 m-0">
@@ -6,10 +9,11 @@
   
         <nav>
           <ul class="nav" v-if="$auth.loggedIn">
+            <li class="nav-item"><NuxtLink to="/" class="nav-link text-primary">Home</NuxtLink></li> 
             <li class="nav-item"><NuxtLink to="/user" class="nav-link text-primary">Profile</NuxtLink></li>
-            <li class="nav-item"><NuxtLink to="$auth.logout()" class="nav-link text-danger">Logout</NuxtLink></li>
+            <li class="nav-item"><a @click="$auth.logout()" class="btn nav-link text-danger pointer-event">Logout</a></li>
           </ul>
-          <ul v-else>
+          <ul class="nav" v-else>
             <li class="nav-item"><NuxtLink to="/login" class="nav-link text-primary">Login</NuxtLink></li>
           </ul>
         </nav>
