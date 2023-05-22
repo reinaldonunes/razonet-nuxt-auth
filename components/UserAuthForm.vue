@@ -8,7 +8,7 @@
         user:{
           username: '',
           password: ''
-        }
+        },
       }
     },
     props: ['submitForm', 'buttonText', 'hasName']
@@ -23,7 +23,7 @@
 
     <label class="form-label mb-3">
       <span class="d-flex mb-1">Senha:</span>
-      <input type="text" name="password" class="form-control mb-0" v-model="user.password" />
+      <input type="password" name="password" class="form-control mb-0" v-model="user.password" />
     </label>
 
     <label class="form-label mb-0">
