@@ -16,11 +16,6 @@ export default {
     ]
   },
 
-
-  modules: [
-    'bootstrap'
-  ],
-
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     'bootstrap/dist/css/bootstrap.css',
@@ -43,7 +38,26 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/auth-next',
   ],
+
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: '/api/auth/login', method: 'post', propertyName: 'token' },
+          logout: { url: '/api/auth/logout', method: 'get' },
+          user: { url: '/api/auth/user', method: 'get', propertyName: 'user' }
+        }
+      }
+    }
+  },
+
+  router: {
+    middleware: ['auth']
+  },
+
+  pinia: {},
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {

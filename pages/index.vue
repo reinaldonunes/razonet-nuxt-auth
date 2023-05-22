@@ -1,5 +1,5 @@
 <template>
-  <Tutorial/>
+  <div class="bg-success">AAA</div>
 </template>
 
 <script>
