@@ -23,7 +23,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~/plugins/pinia', mode: 'client' }
+    { src: '~/plugins/pinia', mode: 'client' },
+    { src: '~/plugins/swalMixin.js' }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -46,6 +47,20 @@ export default {
   auth: {
     strategies: {
       local: {
+        token: {
+          property: 'token',
+          required: true,
+          type: 'Bearer'
+        },
+        cookie: {
+          options: {
+            expires: new Date(new Date().getTime() + (60 * 60 * 1000))
+          }
+        },
+        user: {
+          property: 'user',
+          autoFetch: true
+        },
         endpoints: {
           login: { url: '/api/auth/login', method: 'post', propertyName: 'token' },
           logout: { url: '/api/auth/logout', method: 'get' },
