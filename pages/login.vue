@@ -6,15 +6,18 @@
 
 <script>
 import UserAuthForm from '~/components/UserAuthForm.vue';
+import swalMixin from '~/plugins/swalMixin';
+import { useAuthStore } from '~/store/authStore';
 
 export default {
   name: 'LoginPage',
   components: {
     UserAuthForm
   },
-
+  mixins: [swalMixin],  
   methods: {
     async userLogin(user_info) {
+      const authStore = useAuthStore();
       try {
         let response = await this.$auth.loginWith('local', { 
           data: {
@@ -22,8 +25,10 @@ export default {
             password: user_info.password
           }
         })
-        console.log(response)
+        authStore.setToken(response.data.token);
+        this.showSuccessAlert('Login realizado com sucesso!');
       } catch (err) {
+        this.showErrorAlert('Falha no login. Verifique suas credenciais.');
         console.log(err)
       }
     }
@@ -31,3 +36,9 @@ export default {
 
 }
 </script>
+<style>
+  .swal-text,
+  .swal-footer{
+    text-align: center;
+  }
+</style>
