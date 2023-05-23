@@ -1,69 +1,76 @@
-# nuxt_cloned
+<h1 align="center"> Proof Of Concept - Nuxt Auth + JWT </h1>
 
-## Build Setup
+<p align="center">
+  Projeto prático de autenticação de usuário com utilzação do Nuxt 2, Nuxt Auth e Pinia.
+</p>
 
-```bash
-# install dependencies
-$ npm install
+<br>
 
-# serve with hot reload at localhost:3000
-$ npm run dev
+<p align="center">
+  <img alt="Razonet Nuxt Auth" src=".github/razonet-nuxt-auth.png" width="100%">
+</p>
 
-# build for production and launch server
-$ npm run build
-$ npm run start
+## 🚀 Tecnologias
 
-# generate static project
-$ npm run generate
+Esse projeto foi desenvolvido com as seguintes tecnologias:
+
+- [Nuxt.js](https://nuxtjs.org/)
+- [Nuxt-Auth](https://auth.nuxtjs.org/)
+- [Axios](https://axios-http.com/)
+- [Pinia](https://pinia.vuejs.org/)
+
+## 💻 Projeto
+
+Simulação de autenticação de usuário com API via Ruby on Rails (JWT), utilizando o Pinia Storage para armazenar o estado do usuário e outras informações, bem como Auth middleware para gerenciar o login, logout e sessions.
+
+<h1 align="center"> Setup Front-end & Back-end</h1>
+
+## 🔥 Front-end
+
+Instale as dependências do projeto:
+
+```
+npm install
 ```
 
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
+Rode a aplicação:
 
-## Special Directories
+```
+npm run dev
+```
 
-You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
+ou
 
-### `assets`
+```
+npm run build
+```
 
-The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.
+## 🔥 Back-end
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/assets).
+Clonar o repositório https://github.com/LuanTedesco/razonet-poc-jwt e instalar as gems.
 
-### `components`
+```
+bundle install
+```
 
-The components directory contains your Vue.js components. Components make up the different parts of your page and can be reused and imported into your pages, layouts and even other components.
+Criar o banco e rodar as migrations
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/components).
+```
+rails db:create
+rails db:migrate
+```
 
-### `layouts`
+Rodar o servidor
 
-Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
+```
+rails s -b 0.0.0.0
+```
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
+Obs: o front rodará por padrão na porta 3001, enquanto o back rodará na 3000
+<br /><br /><br />
 
-
-### `pages`
-
-This directory contains your application views and routes. Nuxt will read all the `*.vue` files inside this directory and setup Vue Router automatically.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/get-started/routing).
-
-### `plugins`
-
-The plugins directory contains JavaScript plugins that you want to run before instantiating the root Vue.js Application. This is the place to add Vue plugins and to inject functions or constants. Every time you need to use `Vue.use()`, you should create a file in `plugins/` and add its path to plugins in `nuxt.config.js`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/plugins).
-
-### `static`
-
-This directory contains your static files. Each file inside this directory is mapped to `/`.
-
-Example: `/static/robots.txt` is mapped as `/robots.txt`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
-
-### `store`
-
-This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
+<h4 align="center">
+ <img alt="Ubuntu Linux" src=".github/ubuntu_icon.svg" width="32px">
+  <br />
+  Feito com ♥ no Ubuntu 22.04 LTS
+</h1>
